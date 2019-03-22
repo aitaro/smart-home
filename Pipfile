@@ -9,6 +9,7 @@ verify_ssl = true
 requests = "*"
 flask = "*"
 wakeonlan = "*"
+pywinrm = "*"
 
 [requires]
 python_version = "3.7"

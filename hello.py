@@ -1,7 +1,9 @@
 # hello.py
 from flask import Flask, request, jsonify, make_response
 from wakeonlan import send_magic_packet
-app = Flask(__name__)
+
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_pyfile('application.cfg', silent=True)
 
 @app.route("/")
 def hello():
@@ -20,10 +22,16 @@ def getHoge():
 def postHoge():
     # ボディ(application/json)パラメータ
     params = request.json
-    print(params)
+    keywords = params.split(" ")
+    print(type(params))
+    if 'つけ' in keywords:
+        send_magic_packet(app.config['MAC_ADDRESS'])
+    if '消し' in keywords:
+        print('ケスで')
     response = {}
     if 'param' in params:
         response.setdefault('res', 'param is : ' + params.get('param'))
     return make_response(jsonify(response))
 
-app.run(host="127.0.0.1", port=5000)
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000)
