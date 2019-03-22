@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d99bd6e13b173278b5b31022309611c275578426d46751b984b34b7c6f9234af"
+            "sha256": "a576ccda0044df7deaf0c00fb97003c4d114089e80d27941245bacfb65384996"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -113,6 +113,14 @@
                 "sha256:de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
             ],
             "version": "==1.24.1"
+        },
+        "wakeonlan": {
+            "hashes": [
+                "sha256:5d4e8448ad39ee7db57d7df82f6a1643267526c3f52fc5a41eee1707a29d1751",
+                "sha256:5e6013a17004809e676c150689abd94bcc0f12a37ad3fbce1f6270968f95ffa9"
+            ],
+            "index": "pypi",
+            "version": "==1.1.6"
         },
         "werkzeug": {
             "hashes": [
