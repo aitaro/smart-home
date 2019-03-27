@@ -7,7 +7,7 @@ app.config.from_pyfile('application.cfg', silent=True)
 
 @app.route("/")
 def hello():
-    return "¡Hola World!"
+    return "Hola World!"
 
 @app.route("/hoge", methods=['GET'])
 def getHoge():
