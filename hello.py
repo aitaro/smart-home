@@ -1,4 +1,4 @@
-# hello.py
+# -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, make_response
 from wakeonlan import send_magic_packet
 
