@@ -1,5 +1,12 @@
 #!/bin/bash
 
-git pull
-pipenv install --system
-sudo service apache2 restart
+# git pull
+# pipenv install --system
+# sudo service apache2 restart
+if [ $@ = "--package" ]; then
+  COMMANDS="cd ./smart_home;git pull;/home/pi/.anyenv/envs/pyenv/shims/pipenv install --system;sudo service apache2 restart"
+else
+  COMMANDS="cd ./smart_home;git pull;sudo service apache2 restart"
+fi
+
+ssh 220.145.135.2 -p 54937 -l pi $COMMANDS
