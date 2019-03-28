@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git pull
+pipenv install --system
+sudo service apache2 restart
