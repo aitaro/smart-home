@@ -23,7 +23,9 @@ def postHoge():
     # ボディ(application/json)パラメータ
     print(request)
     params = request.json
+    print(params)
     keywords = params.split(" ")
+    print(keywords)
     print(type(params))
     if 'つけ' in keywords:
         send_magic_packet(app.config['MAC_ADDRESS'])
