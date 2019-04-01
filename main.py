@@ -21,18 +21,18 @@ def getHoge():
 @app.route("/hoge", methods=['POST'])
 def postHoge():
     # ボディ(application/json)パラメータ
-    print(request)
-    print('hogeghoggeg')
-    print(request.json)
+    # print(request)
+    # print('hogeghoggeg')
+    # print(request.json)
     params = request.json
-    print(params.decode('utf-8'))
+    # print(params.decode('utf-8'))
     keywords = params.split(" ")
-    print(keywords)
-    print(type(params))
+    # print(keywords)
+    # print(type(params))
     if 'つけ' in keywords:
         send_magic_packet(app.config['MAC_ADDRESS'])
     if '消し' in keywords:
-        print('ケスで')
+        print('shut down')
     response = {}
     if 'param' in params:
         response.setdefault('res', 'param is : ' + params.get('param'))
