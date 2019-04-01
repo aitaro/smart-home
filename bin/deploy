@@ -13,7 +13,7 @@ fi
 
 
 if [ "$1" = "--local" ]; then
-  ssh 192.168.11.14 -l pi $COMMANDS
+  ssh $LOCAL_IP_ADDRESS -l pi $COMMANDS
 else
   ssh 220.145.135.2 -p 54937 -l pi $COMMANDS
 fi

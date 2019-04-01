@@ -25,7 +25,7 @@ def postHoge():
     # print('hogeghoggeg')
     # print(request.json)
     params = request.json
-    print(type(unicode(params,'utf-8')))
+    print(type(params.encode('utf-8')))
     keywords = params.split(" ")
     # print(keywords)
     # print(type(params))
