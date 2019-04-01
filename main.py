@@ -6,8 +6,8 @@ app = Flask(__name__, instance_relative_config=True)
 app.config.from_pyfile('application.cfg', silent=True)
 
 @app.route("/")
-def hello():
-    return "Hola World!"
+def route():
+    return "Hello! this is the aitaro's server"
 
 @app.route("/hoge", methods=['GET'])
 def getHoge():
@@ -21,6 +21,7 @@ def getHoge():
 @app.route("/hoge", methods=['POST'])
 def postHoge():
     # ボディ(application/json)パラメータ
+    print(request)
     params = request.json
     keywords = params.split(" ")
     print(type(params))

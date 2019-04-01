@@ -3,10 +3,17 @@
 # git pull
 # pipenv install --system
 # sudo service apache2 restart
-if [ $@ = "--package" ]; then
+echo $1
+
+if [ "$1" = "--package" ]; then
   COMMANDS="cd ./smart_home;git pull;/home/pi/.anyenv/envs/pyenv/shims/pipenv install --system;sudo service apache2 restart"
 else
   COMMANDS="cd ./smart_home;git pull;sudo service apache2 restart"
 fi
 
-ssh 220.145.135.2 -p 54937 -l pi $COMMANDS
+
+if [ "$1" = "--local" ]; then
+  ssh 192.168.11.14 -l pi $COMMANDS
+else
+  ssh 220.145.135.2 -p 54937 -l pi $COMMANDS
+fi
