@@ -22,6 +22,7 @@ def getHoge():
 def postHoge():
     # ボディ(application/json)パラメータ
     print(request)
+    print('hogeghoggeg')
     params = request.json
     print(params.decode('utf-8'))
     keywords = params.split(" ")
