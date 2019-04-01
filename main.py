@@ -23,7 +23,7 @@ def postHoge():
     # ボディ(application/json)パラメータ
     print(request)
     params = request.json
-    print(params)
+    print(params.decode('utf-8'))
     keywords = params.split(" ")
     print(keywords)
     print(type(params))
