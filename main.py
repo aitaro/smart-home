@@ -23,7 +23,7 @@ def getHoge():
 def postPc():
     params = request.json # .encode('utf-8')
     # print(params)
-    print(type(str(params)))
+    print(type(params))
     # print(type(params.encode('utf-8')))
     # import pdb; pdb.set_trace()
     # print(params)
