@@ -23,7 +23,7 @@ def getHoge():
 @app.route("/pc", methods=['POST'])
 def postPc():
     # 苦肉の策
-    if os.environ['FLASK_ENV'] == 'development':
+    if os.getenv('FLASK_ENV') == 'development':
         params = request.json
     else:
         params = request.json.encode('utf-8')
