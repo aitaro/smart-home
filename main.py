@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify, make_response
 from wakeonlan import send_magic_packet
 import winrm
+import os
 
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_pyfile('application.cfg', silent=True)
@@ -21,16 +22,12 @@ def getHoge():
 
 @app.route("/pc", methods=['POST'])
 def postPc():
-    params = request.json # .encode('utf-8')
-    # print(params)
-    print(type(params))
-    # print(type(params.encode('utf-8')))
-    # import pdb; pdb.set_trace()
-    # print(params)
-    # print(type(params))
+    # 苦肉の策
+    if os.environ['FLASK_ENV'] == 'development':
+        params = request.json
+    else:
+        params = request.json.encode('utf-8')
     keywords = params.split(" ")
-    # print(keywords)
-    # print(type(params))
     if 'つけ' in keywords:
         send_magic_packet(app.config['MAC_ADDRESS'])
     if '消し' in keywords:
