@@ -21,9 +21,8 @@ def getHoge():
 
 @app.route("/pc", methods=['POST'])
 def postPc():
-    import sys;sys.getdefaultencoding()
     params = request.json # .encode('utf-8')
-    print(params)
+    # print(params)
     print(type(params))
     # print(type(params.encode('utf-8')))
     # import pdb; pdb.set_trace()
