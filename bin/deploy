@@ -13,7 +13,9 @@ fi
 
 
 if [ "$1" = "--local" ]; then
+  scp $(cd $(dirname $0);cd ..;pwd)/instance/application.cfg pi@$LOCAL_IP_ADDRESS:/home/pi/smart_home/instance
   ssh $LOCAL_IP_ADDRESS -l pi $COMMANDS
 else
-  ssh 220.145.135.2 -p 54937 -l pi $COMMANDS
+  scp -P $RASPBERRY_SSH_PORT $(cd $(dirname $0);cd ..;pwd)/instance/application.cfg pi@$LOCAL_IP_ADDRESS:/home/pi/smart_home/instance
+  ssh $GLOBAL_IP_ADDRESS -p $RASPBERRY_SSH_PORT -l pi $COMMANDS
 fi
