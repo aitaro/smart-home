@@ -33,6 +33,10 @@ def postPc():
     if '消し' in keywords:
         s = winrm.Session(app.config['DESKTOP_IP_ADDRESS'], auth=('aitaro', app.config['DESKTOP_LOGIN_PASSWORD']))
         s.run_cmd('shutdown', ['/h'])
+    # if '音楽' in keywords:
+    #     print('start "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" --app=https://music.youtube.com')
+    #     s = winrm.Session(app.config['DESKTOP_IP_ADDRESS'], auth=('aitaro', app.config['DESKTOP_LOGIN_PASSWORD']))
+    #     s.run_ps(b'start "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" --app=https://music.youtube.com')
     response = {}
     if 'param' in params:
         response.setdefault('res', 'param is : ' + params.get('param'))
