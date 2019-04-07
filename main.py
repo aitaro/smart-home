@@ -23,7 +23,7 @@ def getHoge():
 def postPc():
     params = request.json # .encode('utf-8')
     # print(params)
-    print(type(params))
+    print(type(str(params)))
     # print(type(params.encode('utf-8')))
     # import pdb; pdb.set_trace()
     # print(params)
@@ -35,7 +35,7 @@ def postPc():
         send_magic_packet(app.config['MAC_ADDRESS'])
     if '消し' in keywords:
         s = winrm.Session(app.config['DESKTOP_IP_ADDRESS'], auth=('aitaro', app.config['DESKTOP_LOGIN_PASSWORD']))
-        s.run_cmd('shutdown', ['/h'])
+        # s.run_cmd('shutdown', ['/h'])
     response = {}
     if 'param' in params:
         response.setdefault('res', 'param is : ' + params.get('param'))
